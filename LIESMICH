@@ -1,0 +1,7 @@
+Dies ist eine spezielle Version der allgemeinen LaTeX-Klasse `faupress.cls` 
+für die Nutzung im Fachbereich „Maschinenbau“. Sie ist das Ergebnis einer 
+konkreten Veröffentlichung und nutzt eine interne Überarbeitungen des 
+allgemeinen Ansatzes.
+
+Bei Fragen schauen Sie daher bitte in der beiliegenden Dokumentation der 
+allgemeinen Klasse `documentation.pdf` nach.

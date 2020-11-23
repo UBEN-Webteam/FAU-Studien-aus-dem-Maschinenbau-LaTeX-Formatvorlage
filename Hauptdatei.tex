@@ -1,0 +1,102 @@
+% !TeX program = lualatex
+% !TeX spellcheck = de_DE
+% !BIB TS-program = biber
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This template is a specific instance of the general template for the
+% FAU University press available at: https://
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The above meta-comments are evaluated by some TeX editors like 
+% TeXstudio and TeXmaker. They assure, that your editor always calls 
+% the correct tools and uses correct settings.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For debugging you can get a list of all used packages at the end
+% of the log file by calling \listfiles
+%\listfiles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Loading the document class.
+% For the bibliography and the list(s) of acronyms you can use standard
+% package biblatex and acronyms resp. or use your own files. 
+% The template uses a .bib file with a biblatex style and longtable
+% environments for different lists of acronyms, symbols and formulas.
+% If you would like to add a separate file for the bibliography or use
+% package acronym, please consult the documentation of the general FAU
+% template for setting the correct options.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\documentclass[%
+   paper        = 17x24,%
+   language     = ngerman, % english
+   bibliography = true, % none, true, false, split
+   acronym      = false, % true,combined,split,onlyabbreviation,onlysymbol,noabbreviation,nosymbol
+]{faupress-mb}
+
+% You can add global exceptions/restrictions for TeX's hyphenation algorithm depending on the language
+% using "-" to mark potential hypehnation points, e.g. Ur-instinkt 
+\begin{hyphenrules}{ngerman}
+\hyphenation{%
+}
+\end{hyphenrules}
+\begin{hyphenrules}{english}
+\hyphenation{%
+}
+\end{hyphenrules}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Metadaten für Titelseiten einlesen/Load metadata for titlepages
+\input{contents/TitelseiteFAU}
+% Haupttitelseite ausgeben/Output titlepage
+\maketitle
+
+\frontmatter
+% Spezielle Fakultätstitelseite ausgeben/Output special faculty title page
+\makefacultytitle
+
+% Vorwort/Preface
+\include{contents/Vorwort}
+
+% Inhaltsverzeichnis/Table of Contents
+\tableofcontents
+
+% Datei mit Abkürzungslisten einfügen. Alternativ \faupressprintacronyms für Paket acronym/
+% insert ready-to-use lists of acronyms. Call \faupressprintacronyms instead for acronym package
+\include{contents/Nomenklatur}
+%\faupressprintacronyms
+
+% Abbildungs- bzw. Tabellenverzeichnis/
+% List of Figures and List of Tables
+% both lists are optional -> comment if not wanted
+\listoffigures
+\listoftables
+
+\mainmatter
+% Alle Kapitel werde in einzelnen Dateien abgelegt und hier eingelesen/
+% We put each chapter in a separate file and include them in the main file
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents/01-Einleitung}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents/02-StandForschungTechnik}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents/X-ZusammenfassungAusblick}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{contents/X+1-SummaryOutlook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Anhang/Appendix
+\appendix
+\input{contents/Anhang}
+
+% Output automated bibliography
+\faupressprintbibliography
+
+\backmatter
+\include{contents/Abstract}
+\include{contents/Kurzfassung}
+\end{document}

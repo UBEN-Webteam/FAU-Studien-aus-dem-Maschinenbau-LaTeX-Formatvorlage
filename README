@@ -1,0 +1,5 @@
+This is a fork of the general LaTeX class `faupress.cls` to be used in the
+`Maschinenbau` department. It is the result of a concrete PhD publication and
+uses some (internal) modifications of the general approach.
+
+For all questions please refer to the `documentation.pdf` of `faupress.cls` first.
