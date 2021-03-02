@@ -428,7 +428,6 @@
   \newcommand*{\Mbibname}{Literaturverzeichnis}%
   \newcommand*{\Pbibname}{Verzeichnis promotionsbezogener, eigener Publikationen}
   \newcommand*{\Sbibname}{Verzeichnis promotionsbezogener, studentischer Arbeiten}
-  \newcommand*{\bibasterisk}{Der Autor an zweiter (und ggf. dritter) Stelle bezeichnet den bzw. die Betreuer der studentischen Arbeit und an letztgenannter Stelle den/die Lehrstuhlinhaber/in.}
   \newcommand*{\acroname}{Formelzeichen- und Abkürzungsverzeichnis}%
   \newcommand*{\listabbrname}{Abkürzungsverzeichnis}%
   \newcommand*{\listformulaname}{Formelzeichenverzeichnis}%
@@ -470,7 +469,6 @@
   \newcommand*{\Mbibname}{Bibliography}%
   \newcommand*{\Pbibname}{Own publications referring to this work}
   \newcommand*{\Sbibname}{Students’ theses referring to this work}
-  \newcommand*{\bibasterisk}{The 2nd (3rd) author names the supervisor; the last author is head of the institute.}
   \newcommand*{\acroname}{List of Symbols and Abbreviations}%
   \newcommand*{\listabbrname}{List of Abbreviations}%
   \newcommand*{\listformulaname}{List of Symbols}%
@@ -890,8 +888,8 @@ font          = \normalsize, %11bp
     \clearpage
     \newrefcontext[labelprefix = S]
     \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-    \printbibliography[ title = \Sbibname\protect{\footnote[1]{\bibasterisk}},
-                        heading = subbibliography, keyword = student, resetnumbers ]
+    \printbibliography[ title = \Sbibname, heading = subbibliography,
+                        keyword = student, resetnumbers ]
     %\renewcommand{\thefootnote}{\arabic{footnote}}
     \endgroup
     %
