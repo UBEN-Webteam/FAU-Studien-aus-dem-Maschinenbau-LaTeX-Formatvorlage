@@ -1,7 +1,7 @@
 %% Originally developed by Martin Sievers (Einfach schöner publizieren)
 %% based on the faupress.cls class developed by Felix Lammermann (FAU)
 %% and Michael Enders (FAU) 
-%% Copyright (C) 2020 by FAU University Press
+%% Copyright (C) 2020-2021 by FAU University Press
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License (LPPL), either
@@ -18,7 +18,7 @@
 %% faupress.cls.
 %%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{faupress-mb}[2020/08/24 LaTeX Class for FAU University Press (Maschinenbau)]
+\ProvidesClass{faupress-mb}[2021/03/04 LaTeX Class for FAU University Press (Maschinenbau)]
 
 
 %%% LUALATEX %%%
@@ -406,7 +406,8 @@
 \automark[chapter]{chapter}
 \automark*[section]{}
 \providecommand{\Ifthispageodd}{\ifthispageodd}
-\ohead{\parbox[t][2\baselineskip]{\linewidth}{\Ifthispageodd{\raggedleft}{\raggedright}\headmark}}
+\ohead{\parbox[t][2\baselineskip]{\linewidth}%
+   {\Ifthispageodd{\raggedleft}{\raggedright}\headmark}}
 \pagestyle{scrheadings}
 % languages & language depended stuff
 %%%MS: Komplett auf babel gewechselt
@@ -417,88 +418,81 @@
 \fi
 \renewcommand*{\ngermanhyphenmins}{32}
 
+\renewcaptionname{ngerman}{\abstractname}{Abstract}% Absichtlich
+\renewcaptionname{ngerman}{\appendixautorefname}{Anhang}%
+\renewcaptionname{ngerman}{\appendixname}{Anhang}%
+\renewcaptionname{ngerman}{\chapterautorefname}{Kapitel}%
+\renewcaptionname{ngerman}{\chaptername}{Kapitel}%
+\renewcaptionname{ngerman}{\equationautorefname}{Gleichung}%
+\renewcaptionname{ngerman}{\figureautorefname}{Bild}%
+\renewcaptionname{ngerman}{\figurename}{Bild}%
+\renewcaptionname{ngerman}{\listfigurename}{Bildverzeichnis}%
+\renewcaptionname{ngerman}{\listtablename}{Tabellenverzeichnis}%
+\renewcaptionname{ngerman}{\pageautorefname}{Seite}%
+\renewcaptionname{ngerman}{\paragraphautorefname}{Absatz}%
+\renewcaptionname{ngerman}{\partautorefname}{Teil}%
+\renewcaptionname{ngerman}{\partname}{Teil}%
+\renewcaptionname{ngerman}{\prefacename}{Vorwort}%
+\renewcaptionname{ngerman}{\sectionautorefname}{Abschnitt}%
+\renewcaptionname{ngerman}{\subparagraphautorefname}{Unterabsatz}%
+\renewcaptionname{ngerman}{\subsectionautorefname}{Unterabschnitt}%
+\renewcaptionname{ngerman}{\subsubsectionautorefname}{Unterunterabschnitt}%
+\renewcaptionname{ngerman}{\tableautorefname}{Tabelle}%
+\renewcaptionname{ngerman}{\tablename}{Tabelle}%
+\renewcaptionname{ngerman}{\theoremautorefname}{Theorem}%
+%
+\newcaptionname{ngerman}{\abbrname}{Abkürzung}%
+\newcaptionname{ngerman}{\acroname}{Formelzeichen- und Abkürzungsverzeichnis}%
+\newcaptionname{ngerman}{\descriptionname}{Beschreibung}%
+\newcaptionname{ngerman}{\introductionname}{Einleitung}%
+\newcaptionname{ngerman}{\listabbrname}{Abkürzungsverzeichnis}%
+\newcaptionname{ngerman}{\listformulaname}{Formelzeichenverzeichnis}%
+\newcaptionname{ngerman}{\unitname}{Einheit}%
+\newcaptionname{ngerman}{\AMSautorefname}{Gleichung}%
+\newcaptionname{ngerman}{\Hfootnoteautorefname}{Fußnote}%
+\newcaptionname{ngerman}{\Itemautorefname}{Punkt}%
+\newcaptionname{ngerman}{\Mbibname}{Literaturverzeichnis}%
+\newcaptionname{ngerman}{\Pbibname}%
+   {Verzeichnis promotionsbezogener, eigener Publikationen}%
+\newcaptionname{ngerman}{\Sbibname}%
+   {Verzeichnis promotionsbezogener, studentischer Arbeiten}%
 
-\iffaupress@german
-  \newcommand*{\abstractname}{Abstract}% Absichtlich
-  \newcommand*{\prefacename}{Vorwort}%
-  \newcommand*{\introductionname}{Einleitung}%
-  \newcommand*{\unitname}{Einheit}%
-  \newcommand*{\descriptionname}{Beschreibung}%
-  \newcommand*{\abbrname}{Abkürzung}%
-  \newcommand*{\Mbibname}{Literaturverzeichnis}%
-  \newcommand*{\Pbibname}{Verzeichnis promotionsbezogener, eigener Publikationen}
-  \newcommand*{\Sbibname}{Verzeichnis promotionsbezogener, studentischer Arbeiten}
-  \newcommand*{\acroname}{Formelzeichen- und Abkürzungsverzeichnis}%
-  \newcommand*{\listabbrname}{Abkürzungsverzeichnis}%
-  \newcommand*{\listformulaname}{Formelzeichenverzeichnis}%
-
-  \addto\captionsngerman{%
-    \renewcommand{\listfigurename}{Bildverzeichnis}%
-    \renewcommand{\listtablename}{Tabellenverzeichnis}%
-    \renewcommand{\figurename}{Bild}
-    \renewcommand{\tablename}{Tabelle}
-    \renewcommand{\appendixname}{Anhang}
-    \renewcommand{\partname}{Teil}
-    \renewcommand{\chaptername}{Kapitel}
-    \renewcommand{\figureautorefname}{Bild}
-    \renewcommand{\tableautorefname}{Tabelle}
-    \renewcommand{\partautorefname}{Teil}
-    \renewcommand{\appendixautorefname}{Anhang}
-    \renewcommand{\equationautorefname}{Gleichung}
-    \renewcommand{\Itemautorefname}{Punkt}
-    \renewcommand{\chapterautorefname}{Kapitel}
-    \renewcommand{\sectionautorefname}{Abschnitt}
-    \renewcommand{\subsectionautorefname}{Unterabschnitt}
-    \renewcommand{\subsubsectionautorefname}{Unterunterabschnitt}
-    \renewcommand{\paragraphautorefname}{Absatz}
-    \renewcommand{\subparagraphautorefname}{Unterabsatz}
-    \renewcommand{\Hfootnoteautorefname}{Fußnote}
-    \renewcommand{\AMSautorefname}{Gleichung}
-    \renewcommand{\theoremautorefname}{Theorem}
-    \renewcommand{\pageautorefname}{Seite}
-  }
-\fi
-
-\iffaupress@english
-  \newcommand*{\abstractname}{Kurzzusammenfassung}%Absichtlich
-  \newcommand*{\prefacename}{Preface}%
-  \newcommand*{\introductionname}{Introduction}%
-  \newcommand*{\unitname}{Unit}%
-  \newcommand*{\descriptionname}{Description}%
-  \newcommand*{\abbrname}{Abbreviation}%
-  \newcommand*{\Mbibname}{Bibliography}%
-  \newcommand*{\Pbibname}{Own publications referring to this work}
-  \newcommand*{\Sbibname}{Students’ theses referring to this work}
-  \newcommand*{\acroname}{List of Symbols and Abbreviations}%
-  \newcommand*{\listabbrname}{List of Abbreviations}%
-  \newcommand*{\listformulaname}{List of Symbols}%
-%%%
-  \addto\captionsenglish{%
-    \renewcommand{\listfigurename}{List of Figures}%
-    \renewcommand{\listtablename}{List of Tables}%
-    \renewcommand{\figurename}{Figure}
-    \renewcommand{\tablename}{Table}
-    \renewcommand{\appendixname}{Appendix}
-    \renewcommand{\partname}{Part}
-    \renewcommand{\chaptername}{chapter}
-    \renewcommand{\figureautorefname}{Figure}
-    \renewcommand{\tableautorefname}{Table}
-    \renewcommand{\partautorefname}{Part}
-    \renewcommand{\appendixautorefname}{Appendix}
-    \renewcommand{\equationautorefname}{Equation}
-    \renewcommand{\Itemautorefname}{item}
-    \renewcommand{\chapterautorefname}{chapter}
-    \renewcommand{\sectionautorefname}{section}
-    \renewcommand{\subsectionautorefname}{subsection}
-    \renewcommand{\subsubsectionautorefname}{subsubsection}
-    \renewcommand{\paragraphautorefname}{paragraph}
-    \renewcommand{\subparagraphautorefname}{subparagraph}
-    \renewcommand{\Hfootnoteautorefname}{footnote}
-    \renewcommand{\AMSautorefname}{Equation}
-    \renewcommand{\theoremautorefname}{Theorem}
-    \renewcommand{\pageautorefname}{page}
-  }
-\fi
+\renewcaptionname{english}{\abstractname}{Kurzzusammenfassung}%Absichtlich
+\renewcaptionname{english}{\appendixautorefname}{Appendix}%
+\renewcaptionname{english}{\appendixname}{Appendix}%
+\renewcaptionname{english}{\chaptername}{chapter}%
+\renewcaptionname{english}{\equationautorefname}{Equation}%
+\renewcaptionname{english}{\figureautorefname}{Figure}%
+\renewcaptionname{english}{\figurename}{Figure}%
+\renewcaptionname{english}{\listfigurename}{List of Figures}%
+\renewcaptionname{english}{\listtablename}{List of Tables}%
+\renewcaptionname{english}{\pageautorefname}{page}%
+\renewcaptionname{english}{\paragraphautorefname}{paragraph}%
+\renewcaptionname{english}{\partautorefname}{Part}%
+\renewcaptionname{english}{\partname}{Part}%
+\renewcaptionname{english}{\prefacename}{Preface}%
+\renewcaptionname{english}{\tableautorefname}{Table}%
+\renewcaptionname{english}{\tablename}{Table}%
+\renewcaptionname{english}{\chapterautorefname}{chapter}%
+\renewcaptionname{english}{\sectionautorefname}{section}%
+\renewcaptionname{english}{\subparagraphautorefname}{subparagraph}%
+\renewcaptionname{english}{\subsectionautorefname}{subsection}%
+\renewcaptionname{english}{\subsubsectionautorefname}{subsubsection}%
+\renewcaptionname{english}{\theoremautorefname}{Theorem}%
+%
+\newcaptionname{english}{\abbrname}{Abbreviation}%
+\newcaptionname{english}{\acroname}{List of Symbols and Abbreviations}%
+\newcaptionname{english}{\descriptionname}{Description}%
+\newcaptionname{english}{\introductionname}{Introduction}%
+\newcaptionname{english}{\listabbrname}{List of Abbreviations}%
+\newcaptionname{english}{\listformulaname}{List of Symbols}%
+\newcaptionname{english}{\unitname}{Unit}%
+\newcaptionname{english}{\AMSautorefname}{Equation}%
+\newcaptionname{english}{\Hfootnoteautorefname}{footnote}%
+\newcaptionname{english}{\Itemautorefname}{item}%
+\newcaptionname{english}{\Mbibname}{Bibliography}%
+\newcaptionname{english}{\Pbibname}{Own publications referring to this work}%
+\newcaptionname{english}{\Sbibname}{Students’ theses referring to this work}%
 
 \RequirePackage[autostyle]{csquotes}
 
