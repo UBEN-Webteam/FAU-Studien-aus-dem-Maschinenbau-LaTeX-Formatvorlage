@@ -1097,7 +1097,7 @@ font          = \normalsize, %11bp
 
 %   hyperlinks
 
-\RequirePackage{hyperref}
+\RequirePackage[pdfencoding=auto]{hyperref}
   \hypersetup{
     linktoc = all,
     hidelinks
